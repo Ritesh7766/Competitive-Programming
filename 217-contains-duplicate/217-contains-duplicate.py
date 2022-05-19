@@ -4,9 +4,10 @@ class Solution:
         exists = set()
         
         for num in nums:
-            # if num already exists in the set return true.
+            # If the number already exists in the hash-set return True.
             if num in exists: return True
-            # Otherwise add it to the hash-set.
+            # Otherwise add it to the hash set.
             exists.add(num)
         
+        # If no duplicates exists return False.
         return False
