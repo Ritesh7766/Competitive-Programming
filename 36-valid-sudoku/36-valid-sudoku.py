@@ -16,5 +16,4 @@ class Solution:
                 mp_row[i].add(board[i][j])
                 mp_col[j].add(board[i][j])
                 mp_grid[(i // 3, j // 3)].add(board[i][j])
-            
         return True
