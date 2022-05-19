@@ -5,19 +5,12 @@ class Solution:
         visited = set()
         nums = set(nums)
         
-        def dfs(node):
-            stack = collections.deque()
-            stack.appendleft(node)
-            ln = 0
-            
-            while stack:
-                u = stack.popleft()
-                visited.add(u)
-                ln += 1
-                adj_vrts = [u - 1, u + 1]
-                for v in adj_vrts:
-                    if v in nums and v not in visited:
-                        stack.appendleft(v)
+        def dfs(u, ln = 1):
+            visited.add(u)
+            adj_verts = [u - 1, u + 1]
+            for v in adj_verts:
+                if v in nums and v not in visited:
+                    ln = dfs(v, ln + 1)
             return ln
         
         mx_ln = 0
