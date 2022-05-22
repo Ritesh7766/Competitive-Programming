@@ -3,4 +3,4 @@ class Solution:
         mp = collections.defaultdict(int)
         for i in range(len(s) - 10 + 1):
             mp[s[i : i + 10]] += 1
-        return [key for key,value in mp.items() if value > 1]
+        return [key for key, value in mp.items() if value > 1]
