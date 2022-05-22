@@ -1,9 +1,6 @@
 class Solution:
     def findRepeatedDnaSequences(self, s: str) -> List[str]:
-        res, exists = set(), set()
-        
+        mp = collections.defaultdict(int)
         for i in range(len(s) - 10 + 1):
-            sequence = s[i : i + 10]
-            if sequence in exists: res.add(sequence)
-            else: exists.add(sequence)
-        return res
+            mp[s[i : i + 10]] += 1
+        return [key for key,value in mp.items() if value > 1]
