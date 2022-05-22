@@ -4,8 +4,8 @@ class Solution:
         buy, sell = 0, 1
         
         while sell < len(prices):
-            mx_profit = max(mx_profit, prices[sell] - prices[buy])
             if prices[buy] >= prices[sell]:
                 buy = sell
+            mx_profit = max(mx_profit, prices[sell] - prices[buy])
             sell += 1
         return mx_profit
