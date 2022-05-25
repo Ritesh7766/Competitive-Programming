@@ -5,11 +5,11 @@ using namespace std;
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-        unordered_set<int> set;
-        for (int i = 0; i < nums.size(); i++) {
-            if (set.count(nums[i]) == 1) 
+        unordered_set<int> exists;
+        for (auto num : nums) {
+            if (exists.count(num))
                 return true;
-            set.insert(nums[i]);
+            exists.insert(num);
         }
         return false;
     }
