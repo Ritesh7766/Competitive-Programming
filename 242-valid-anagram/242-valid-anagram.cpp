@@ -1,4 +1,4 @@
-#include <unordered_map>
+#include <vector>
 
 using namespace std;
 
@@ -7,19 +7,15 @@ public:
     bool isAnagram(string s, string t) {
         if (s.length() != t.length())
             return false;
-        unordered_map<char, int> map;
+        vector<int> map(26, 0);
         
         for (int i = 0; i < s.length(); i++) {
-            if (!map.count(s[i]))
-                map[s[i]] = 0;
-            if (!map.count(s[i]))
-                map[t[i]] = 0;
-            map[s[i]] += 1;
-            map[t[i]] -= 1;
+            map[s[i] - 'a'] += 1;
+            map[t[i] - 'a'] -= 1;
         }
         
-        for (auto item : map)
-            if (item.second != 0)
+        for (auto count : map)
+            if (count != 0) 
                 return false;
         
         return true;
