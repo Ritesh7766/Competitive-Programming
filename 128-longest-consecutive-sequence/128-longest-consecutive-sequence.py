@@ -1,7 +1,6 @@
+
 class Solution:
     def longestConsecutive(self, nums: List[int]) -> int:
-        # Let each element be a vertex of a graph.
-        # Each vertex v will be adjacent to at most two vertices, (v - 1) and (v + 1).
         visited = set()
         nums = set(nums)
         
@@ -14,8 +13,8 @@ class Solution:
             while queue:
                 u = queue.popleft()
                 ln += 1
-                adj_vrts = [u - 1, u + 1]
-                for v in adj_vrts:
+                adj_verts = [u - 1, u + 1]
+                for v in adj_verts:
                     if v in nums and v not in visited:
                         queue.append(v)
                         visited.add(v)
