@@ -3,7 +3,7 @@ class Solution:
         N = 9
         mp_row = collections.defaultdict(set)
         mp_col = collections.defaultdict(set)
-        mp_grid = collections.defaultdict(set)
+        mp_grd = collections.defaultdict(set)
         
         for i in range(N):
             for j in range(N):
@@ -11,9 +11,10 @@ class Solution:
                 
                 if board[i][j] in mp_row[i]: return False
                 if board[i][j] in mp_col[j]: return False
-                if board[i][j] in mp_grid[(i // 3, j // 3)]: return False
+                if board[i][j] in mp_grd[(i // 3, j // 3)]: return False
                 
                 mp_row[i].add(board[i][j])
                 mp_col[j].add(board[i][j])
-                mp_grid[(i // 3, j // 3)].add(board[i][j])
+                mp_grd[(i // 3, j // 3)].add(board[i][j])
+            
         return True
