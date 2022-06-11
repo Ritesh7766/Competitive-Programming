@@ -1,10 +1,5 @@
 class Solution:
-    def maxProfit(self, prices: List[int]) -> int:
-        '''
-        If buy price is less than the sell price, sell it.
-        Otherwise buy it at the sell price.
-        '''
-        
+    def maxProfit(self, prices: List[int]) -> int:  
         buy, mx_profit = 0, 0
         
         for sell in range(1, len(prices) ):
