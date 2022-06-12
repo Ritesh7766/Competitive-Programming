@@ -1,22 +1,21 @@
-from math import inf
-
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
         key = Counter(t)
-        max_unique = len(key)
         mp = collections.defaultdict(int)
+        max_found = len(key)
         
-        left, found = 0, 0
+        l, found = 0, 0
         res = (inf, 0, 0)
-        for right in range(len(s) ):
-            mp[s[right]] += 1
-            if s[right] in key and mp[s[right]] == key[s[right]]:
+        for r in range(len(s) ):
+            mp[s[r]] += 1
+            if s[r] in key and mp[s[r]] == key[s[r]]:
                 found += 1
-            while found == max_unique:
-                if right - left + 1 < res[0]:
-                    res = (right - left + 1, left, right + 1)
-                if s[left] in key and mp[s[left]] == key[s[left]]:
+            while found == max_found:
+                if res[0] > (r - l + 1):
+                    res = (r - l + 1, l, r)
+                if s[l] in key and mp[s[l]] == key[s[l]]:
                     found -= 1
-                mp[s[left]] -= 1
-                left += 1
-        return '' if res[0] is inf else s[res[1] : res[2]]
+                mp[s[l]] -= 1
+                l += 1
+                
+        return '' if res[0] is inf else s[res[1] : res[2] + 1]
