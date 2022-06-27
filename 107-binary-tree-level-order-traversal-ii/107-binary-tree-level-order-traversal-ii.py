@@ -9,7 +9,7 @@ class Solution:
         if not root: return []
         queue = collections.deque()
         queue.append(root)
-        res = []
+        res = collections.deque()
         
         while queue:
             level = []
@@ -18,5 +18,5 @@ class Solution:
                 level.append(u.val)
                 if u.left: queue.append(u.left)
                 if u.right: queue.append(u.right)
-            res.append(level)
-        return res[::-1]
+            res.appendleft(level)
+        return list(res)
