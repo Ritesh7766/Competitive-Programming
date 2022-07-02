@@ -10,10 +10,12 @@ class Solution:
         queue = collections.deque()
         queue.append((root, 1))
         
+        depth = 0
         while queue:
             u, depth = queue.popleft()
-            if not u.left and not u.right: 
-                return depth
+            if not u.left and not u.right:
+                break
             if u.left: queue.append((u.left, depth + 1))
             if u.right: queue.append((u.right, depth + 1))
-        return 0
+        return depth
+        
