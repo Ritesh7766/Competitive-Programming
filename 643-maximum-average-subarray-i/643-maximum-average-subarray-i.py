@@ -4,9 +4,9 @@ class Solution:
         for i in range(k):
             sm += nums[i]
         
-        mx_avg = sm / k
+        mx_sm = sm
         for right in range(k, len(nums)):
             sm += (nums[right] - nums[left])
-            mx_avg = max(mx_avg, sm / k)
+            mx_sm = max(mx_sm, sm)
             left += 1
-        return mx_avg
+        return mx_sm / k
