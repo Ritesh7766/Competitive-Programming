@@ -13,11 +13,10 @@ class Solution:
         res = []
         while queue:
             sm, cnt = 0, len(queue)
-            for _ in range(len(queue) ):
+            for _ in range(cnt):
                 u = queue.popleft()
                 sm += u.val
                 if u.left: queue.append(u.left)
                 if u.right: queue.append(u.right)
             res.append(sm / cnt)
         return res
-        
