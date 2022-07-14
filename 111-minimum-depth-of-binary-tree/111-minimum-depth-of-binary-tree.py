@@ -4,18 +4,16 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+from math import inf
+
 class Solution:
     def minDepth(self, root: Optional[TreeNode]) -> int:
         if not root: return 0
-        queue = collections.deque()
-        queue.append((root, 1))
+        elif not root.left and not root.right:
+            return 1
         
-        depth = 0
-        while queue:
-            u, depth = queue.popleft()
-            if not u.left and not u.right:
-                break
-            if u.left: queue.append((u.left, depth + 1))
-            if u.right: queue.append((u.right, depth + 1))
-        return depth
+        d1, d2 = inf, inf
+        if root.left: d1 = self.minDepth(root.left)
+        if root.right: d2 = self.minDepth(root.right)
+        return min(d1, d2) + 1
         
