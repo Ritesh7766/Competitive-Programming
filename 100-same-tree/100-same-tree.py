@@ -11,8 +11,8 @@ class Solution:
         
         while queue:
             u, v = queue.popleft()
-            if not u and not v: continue
-            elif (not u and v) or (u and not v): return False
+            if not v and not u: continue
+            elif u and not v or not u and v: return False
             elif u.val != v.val: return False
             queue.append((u.left, v.left))
             queue.append((u.right, v.right))
