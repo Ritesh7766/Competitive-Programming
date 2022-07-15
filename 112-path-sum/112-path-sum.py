@@ -8,7 +8,7 @@ class Solution:
     def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
         if not root: return False
         stack = collections.deque()
-        stack.appendleft((root, root.val))
+        stack.append((root, root.val))
         
         while stack:
             u, sm = stack.popleft()
