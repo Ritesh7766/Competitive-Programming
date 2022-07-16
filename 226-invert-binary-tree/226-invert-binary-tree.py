@@ -10,6 +10,6 @@ class Solution:
             return None
         
         root.left, root.right = root.right, root.left
-        self.invertTree(root.left)
-        self.invertTree(root.right)
+        _ = self.invertTree(root.left)
+        _ = self.invertTree(root.right)
         return root
