@@ -1,8 +1,8 @@
 class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
-        if not grid: return 0
+        if not grid: return None
         rows, cols = len(grid), len(grid[0])
-        dir = [(1, 0), (-1, 0), (0, -1), (0, 1)]
+        dir = [(1, 0), (-1, 0), (0, 1), (0, -1)]
         
         def dfs(u, verts = 1):
             grid[u[0]][u[1]] = 2
@@ -12,9 +12,9 @@ class Solution:
                     verts = dfs((x, y), verts + 1)
             return verts
         
-        mx_area = 0
+        max_area = 0
         for i in range(rows):
             for j in range(cols):
                 if grid[i][j] == 1:
-                    mx_area = max(mx_area, dfs((i, j)) )
-        return mx_area
+                    max_area = max(max_area, dfs((i, j)) )
+        return max_area
